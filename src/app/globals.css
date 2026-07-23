@@ -1,0 +1,263 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   BARNABAS MINISTRY OF MICHIGAN — "The Son of Encouragement"
+   A warm, dignified heritage look: deep navy, revival red, antique gold on
+   parchment. Steady, trustworthy, and quietly patriotic — a friend to pastors.
+   ========================================================================== */
+
+@theme inline {
+  /* Type — Garamond warmth for headlines, Inter for structure */
+  --font-display: var(--font-display); /* Cormorant Garamond */
+  --font-sans: var(--font-sans);       /* Inter */
+  --font-serif: var(--font-display);
+
+  /* Parchment */
+  --color-cream: #faf5ea;
+  --color-cream-2: #f3ead6;
+  --color-cream-3: #ece0c7;
+  --color-paper: #fdfaf3;
+
+  /* Navy — trust & depth (dark sections) */
+  --color-navy: #17294a;
+  --color-navy-deep: #101f39;
+  --color-navy-soft: #26406a;
+
+  /* Revival red — the spot accent */
+  --color-red: #9e2b25;
+  --color-red-bright: #ba3a2e;
+
+  /* Antique gold */
+  --color-gold: #bd9648;
+  --color-gold-bright: #d9b874;
+
+  /* Ink & structure */
+  --color-ink: #221f18;
+  --color-ink-2: #322d22;
+  --color-ink-soft: #4d4638;
+  --color-muted: #6f6653;
+  --color-rule: #e0d4ba;
+  --color-rule-soft: #ede3cf;
+}
+
+/* ---- Base ---------------------------------------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background-color: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-navy);
+  color: var(--color-cream);
+}
+
+/* ---- Typographic voice --------------------------------------------------- */
+
+.font-display { font-family: var(--font-display); }
+
+/* Display headline — Garamond, tight & graceful */
+.display-hed {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.005em;
+}
+
+/* Eyebrow / kicker — civic small-caps in Inter */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.72rem;
+  line-height: 1;
+}
+
+.drop-cap::first-letter {
+  float: left;
+  margin-right: 0.6rem;
+  margin-top: 0.35rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 4.4rem;
+  line-height: 0.62;
+  color: var(--color-red);
+}
+
+/* ---- Ornamental rules ---------------------------------------------------- */
+
+.rule-diamond {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  color: var(--color-gold);
+}
+.rule-diamond::before,
+.rule-diamond::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: currentColor;
+  opacity: 0.55;
+}
+
+/* faint gold dot field for texture on dark panels */
+.dot-field {
+  background-image: radial-gradient(currentColor 1.1px, transparent 1.3px);
+  background-size: 16px 16px;
+}
+
+/* thin flag-inspired tricolor rule (navy/red/gold) — used sparingly */
+.tricolor {
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--color-navy) 0 33.3%,
+    var(--color-red) 33.3% 66.6%,
+    var(--color-gold) 66.6% 100%
+  );
+}
+
+/* ---- Buttons ------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  padding: 0.95rem 1.7rem;
+  border-radius: 2px;
+  border: 1.5px solid transparent;
+  transition: transform 0.18s ease, background-color 0.2s ease, color 0.2s ease,
+    box-shadow 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+  line-height: 1;
+}
+.btn-primary {
+  background: var(--color-navy);
+  color: var(--color-cream);
+  border-color: var(--color-navy);
+  box-shadow: 0 10px 24px -12px rgba(16, 31, 57, 0.7);
+}
+.btn-primary:hover {
+  background: var(--color-navy-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px -14px rgba(16, 31, 57, 0.8);
+}
+.btn-accent {
+  background: var(--color-red);
+  color: var(--color-cream);
+  border-color: var(--color-red);
+  box-shadow: 0 10px 24px -12px rgba(158, 43, 37, 0.7);
+}
+.btn-accent:hover {
+  background: var(--color-red-bright);
+  transform: translateY(-2px);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--color-navy);
+  border-color: var(--color-navy);
+}
+.btn-ghost:hover {
+  background: var(--color-navy);
+  color: var(--color-cream);
+}
+.btn-ghost-inv {
+  background: transparent;
+  color: var(--color-cream);
+  border-color: rgba(250, 245, 234, 0.55);
+}
+.btn-ghost-inv:hover {
+  background: var(--color-cream);
+  color: var(--color-navy);
+  border-color: var(--color-cream);
+}
+.btn-gold {
+  background: var(--color-gold-bright);
+  color: var(--color-navy-deep);
+  border-color: var(--color-gold-bright);
+}
+.btn-gold:hover {
+  background: var(--color-gold);
+  transform: translateY(-2px);
+}
+
+/* link */
+.link-underline {
+  color: var(--color-red);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color 0.2s ease;
+}
+.link-underline:hover { color: var(--color-red-bright); }
+
+/* ---- Marquee / ribbon ---------------------------------------------------- */
+
+.marquee {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  user-select: none;
+}
+.marquee__track {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 2.5rem;
+  padding-right: 2.5rem;
+  animation: marquee 38s linear infinite;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+.marquee:hover .marquee__track { animation-play-state: paused; }
+
+/* ---- Hero entrance ------------------------------------------------------- */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  opacity: 0;
+  animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.animation-delay-200 { animation-delay: 0.16s; }
+.animation-delay-400 { animation-delay: 0.32s; }
+
+/* ---- Scroll reveal ------------------------------------------------------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .animate-fade-up { opacity: 1; animation: none; }
+  .marquee__track { animation: none; }
+  html { scroll-behavior: auto; }
+}

@@ -1,0 +1,294 @@
+import Link from "next/link";
+import Image from "next/image";
+import { SITE, HERO, HEART, PILLARS, SERVE, LETTER, INVITE } from "@/config/site";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+import Marquee from "@/components/Marquee";
+import Reveal from "@/components/Reveal";
+import Logo from "@/components/Logo";
+import { StarDivider, Diamond } from "@/components/Ornaments";
+
+const orgLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: SITE.name,
+  alternateName: "Barnabas Ministry",
+  slogan: SITE.tagline,
+  description: SITE.shortDescription,
+  url: SITE.url,
+  email: SITE.email,
+  telephone: SITE.phone,
+  logo: `${SITE.url}/icon-512.png`,
+  image: `${SITE.url}/og.jpg`,
+  areaServed: "Michigan, United States",
+  founder: { "@type": "Person", name: SITE.contactName },
+  knowsAbout: [
+    "Pulpit supply",
+    "Revival meetings",
+    "Bible conferences",
+    "Youth and family camps",
+    "Encouraging pastors",
+  ],
+};
+
+export default function Home() {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }}
+      />
+      <SiteHeader />
+      <main>
+        {/* ── Hero ─────────────────────────────────────────────── */}
+        <section className="relative overflow-hidden bg-cream pt-[72px]">
+          <div
+            className="pointer-events-none absolute inset-0"
+            aria-hidden="true"
+            style={{
+              background:
+                "radial-gradient(110% 70% at 15% 0%, rgba(255,255,255,0.6), transparent 55%), radial-gradient(120% 100% at 100% 100%, rgba(23,41,74,0.06), transparent 55%)",
+            }}
+          />
+          <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 pb-20 pt-12 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:pb-28 lg:pt-16">
+            {/* Text */}
+            <div className="animate-fade-up">
+              <div className="mb-6 flex items-center gap-3 text-red">
+                <Diamond className="h-2.5 w-2.5" />
+                <span className="eyebrow">{HERO.kicker}</span>
+              </div>
+
+              <h1 className="display-hed text-[clamp(2.7rem,7vw,4.6rem)] text-navy">
+                {HERO.headline}
+                <span className="mt-1 block text-red">{HERO.headlineAccent}</span>
+              </h1>
+
+              <div className="mt-7 flex items-start gap-4">
+                <span className="mt-3 h-px w-12 shrink-0 bg-gold" />
+                <p className="max-w-lg text-lg leading-relaxed text-ink-soft">
+                  {HERO.subhead}
+                </p>
+              </div>
+
+              <figure className="mt-7 border-l-2 border-gold/70 pl-5">
+                <blockquote className="font-display text-xl italic leading-snug text-navy/80">
+                  {HERO.verse}
+                </blockquote>
+                <figcaption className="mt-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted">
+                  {HERO.verseRef}
+                </figcaption>
+              </figure>
+
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <Link href={HERO.primaryCta.href} className="btn btn-primary">
+                  {HERO.primaryCta.label}
+                </Link>
+                <Link href={HERO.secondaryCta.href} className="btn btn-ghost">
+                  {HERO.secondaryCta.label}
+                </Link>
+              </div>
+            </div>
+
+            {/* Emblem medallion */}
+            <div className="animate-fade-up animation-delay-200 mx-auto w-full max-w-sm lg:max-w-none">
+              <div className="relative">
+                <div className="relative overflow-hidden rounded-md bg-navy px-8 py-12 text-center shadow-[0_30px_60px_-30px_rgba(16,31,57,0.7)]">
+                  <div className="dot-field pointer-events-none absolute inset-0 text-gold opacity-[0.08]" aria-hidden="true" />
+                  <div
+                    className="pointer-events-none absolute inset-0"
+                    aria-hidden="true"
+                    style={{
+                      background:
+                        "radial-gradient(80% 60% at 50% 0%, rgba(217,184,116,0.16), transparent 60%)",
+                    }}
+                  />
+                  <Logo className="relative mx-auto h-56 w-auto drop-shadow-[0_10px_20px_rgba(0,0,0,0.35)]" />
+                  <StarDivider className="relative mx-auto mt-8 max-w-[11rem] text-gold/60" />
+                  <p className="relative mt-5 font-display text-2xl italic text-cream">
+                    {SITE.slogan}
+                  </p>
+                  <p className="relative mt-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-gold-bright">
+                    {SITE.tagline}
+                  </p>
+                </div>
+                <div className="tricolor absolute inset-x-6 -bottom-1.5 rounded-full opacity-90" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <Marquee />
+
+        {/* ── The Heart ────────────────────────────────────────── */}
+        <section id="heart" className="scroll-mt-20 bg-paper">
+          <div className="mx-auto grid max-w-6xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16 lg:py-28">
+            <Reveal>
+              <p className="eyebrow text-red">{HEART.kicker}</p>
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight text-navy sm:text-5xl">
+                {HEART.heading}
+              </h2>
+              <StarDivider className="mt-7 max-w-[9rem] text-gold" />
+            </Reveal>
+
+            <Reveal delay={100}>
+              <div className="space-y-5 text-[17px] leading-[1.8] text-ink-soft">
+                {HEART.body.map((p, i) => (
+                  <p key={i} className={i === 0 ? "drop-cap" : ""}>
+                    {p}
+                  </p>
+                ))}
+              </div>
+              <figure className="mt-8 rounded-sm border border-gold/40 bg-cream-2 px-6 py-6">
+                <blockquote className="font-display text-2xl italic leading-snug text-navy">
+                  {HEART.verse.text}
+                </blockquote>
+                <figcaption className="mt-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-red">
+                  {HEART.verse.ref}
+                </figcaption>
+              </figure>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ── The three E's ────────────────────────────────────── */}
+        <section id="pillars" className="scroll-mt-20 relative overflow-hidden bg-navy text-cream">
+          <div className="dot-field pointer-events-none absolute inset-0 text-gold opacity-[0.06]" aria-hidden="true" />
+          <div className="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
+            <Reveal className="mx-auto max-w-2xl text-center">
+              <p className="eyebrow text-gold-bright">{PILLARS.kicker}</p>
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight text-cream sm:text-5xl">
+                {PILLARS.heading}
+              </h2>
+              <p className="mx-auto mt-5 max-w-xl leading-relaxed text-cream/70">
+                {PILLARS.intro}
+              </p>
+            </Reveal>
+
+            <div className="mt-14 grid gap-6 md:grid-cols-3">
+              {PILLARS.items.map((item, i) => (
+                <Reveal
+                  key={item.name}
+                  delay={i * 90}
+                  className="group relative rounded-sm border border-white/10 bg-white/[0.03] p-8 transition-colors hover:border-gold/50"
+                >
+                  <span className="font-display text-5xl font-semibold text-gold/70">{item.n}</span>
+                  <h3 className="mt-3 font-display text-3xl font-semibold text-cream">{item.name}</h3>
+                  <div className="mt-3 h-px w-10 bg-red" />
+                  <p className="mt-4 leading-relaxed text-cream/70">{item.body}</p>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+          <div className="tricolor" />
+        </section>
+
+        {/* ── How we serve ─────────────────────────────────────── */}
+        <section id="serve" className="scroll-mt-20 bg-cream">
+          <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
+            <Reveal className="max-w-2xl">
+              <p className="eyebrow text-red">{SERVE.kicker}</p>
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight text-navy sm:text-5xl">
+                {SERVE.heading}
+              </h2>
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">{SERVE.intro}</p>
+            </Reveal>
+
+            <div className="mt-14 grid gap-6 sm:grid-cols-2">
+              {SERVE.items.map((item, i) => (
+                <Reveal
+                  key={item.title}
+                  delay={(i % 2) * 80}
+                  className="group relative flex flex-col rounded-sm border border-rule bg-paper p-8 transition-all hover:-translate-y-1 hover:border-gold/60 hover:shadow-[0_20px_40px_-24px_rgba(16,31,57,0.5)]"
+                >
+                  <div className="flex items-baseline justify-between gap-4">
+                    <h3 className="font-display text-3xl font-semibold text-navy">{item.title}</h3>
+                    <span className="font-display text-4xl font-semibold text-cream-3 transition-colors group-hover:text-gold/70">
+                      0{i + 1}
+                    </span>
+                  </div>
+                  <p className="mt-1 text-[12px] font-semibold uppercase tracking-[0.12em] text-red">
+                    {item.tag}
+                  </p>
+                  <p className="mt-4 leading-relaxed text-ink-soft">{item.body}</p>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal className="mt-12 text-center">
+              <Link href="/invite" className="btn btn-accent">
+                Invite Us to Your Church
+              </Link>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ── A word from the ministry ─────────────────────────── */}
+        <section className="relative overflow-hidden bg-cream-2">
+          <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16 lg:py-24">
+            <Reveal className="mx-auto w-full max-w-sm">
+              <figure className="relative">
+                <div className="overflow-hidden rounded-md border border-gold/50 bg-navy shadow-[0_24px_48px_-28px_rgba(16,31,57,0.7)]">
+                  <Image
+                    src="/caincross-couple.jpg"
+                    alt="A.C. Caincross and his wife, Barnabas Ministry of Michigan"
+                    width={570}
+                    height={670}
+                    priority
+                    className="h-auto w-full object-cover"
+                  />
+                </div>
+                <div className="tricolor absolute inset-x-8 -bottom-1.5 rounded-full" />
+              </figure>
+            </Reveal>
+
+            <Reveal delay={100}>
+              <p className="eyebrow text-red">{LETTER.kicker}</p>
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight text-navy sm:text-5xl">
+                {LETTER.heading}
+              </h2>
+              <div className="mt-6 space-y-5 text-[17px] leading-[1.8] text-ink-soft">
+                {LETTER.body.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+              <p className="mt-7 font-display text-2xl italic leading-snug text-navy">
+                “{LETTER.pullQuote}”
+              </p>
+              <p className="mt-4 text-[13px] font-semibold uppercase tracking-[0.16em] text-muted">
+                {LETTER.signoff}
+              </p>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ── Invite CTA ───────────────────────────────────────── */}
+        <section className="relative overflow-hidden bg-navy-deep text-cream">
+          <div className="dot-field pointer-events-none absolute inset-0 text-gold opacity-[0.06]" aria-hidden="true" />
+          <div
+            className="pointer-events-none absolute inset-0"
+            aria-hidden="true"
+            style={{ background: "radial-gradient(90% 70% at 50% 0%, rgba(217,184,116,0.14), transparent 60%)" }}
+          />
+          <div className="relative mx-auto max-w-3xl px-5 py-20 text-center sm:px-8 lg:py-24">
+            <Logo className="mx-auto h-20 w-auto" />
+            <p className="eyebrow mt-6 text-gold-bright">{INVITE.kicker}</p>
+            <h2 className="mt-4 font-display text-4xl font-semibold leading-tight text-cream sm:text-5xl">
+              {INVITE.heading}
+            </h2>
+            <p className="mx-auto mt-5 max-w-xl leading-relaxed text-cream/75">{INVITE.body}</p>
+            <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Link href="/invite" className="btn btn-gold">
+                Request a Date
+              </Link>
+              <a href={`tel:${SITE.phoneTel}`} className="btn btn-ghost-inv">
+                {INVITE.callLabel}: {SITE.phone}
+              </a>
+            </div>
+          </div>
+          <div className="tricolor" />
+        </section>
+      </main>
+      <SiteFooter />
+    </>
+  );
+}
