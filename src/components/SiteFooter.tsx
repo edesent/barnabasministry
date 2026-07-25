@@ -1,6 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
 import { NAV, SITE } from "@/config/site";
-import Logo from "./Logo";
 import { StarDivider } from "./Ornaments";
 
 export default function SiteFooter() {
@@ -12,22 +12,15 @@ export default function SiteFooter() {
       <div className="relative mx-auto max-w-6xl px-5 py-16 sm:px-8">
         <div className="grid gap-12 text-center md:grid-cols-[1.5fr_1fr_1.1fr] md:text-left">
           {/* Brand */}
-          <div>
-            <div className="flex items-center justify-center gap-3 md:justify-start">
-              <Logo className="h-14 w-auto" />
-              <div>
-                <p className="font-display text-2xl font-semibold leading-none text-cream">
-                  Barnabas Ministry
-                </p>
-                <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.3em] text-gold-bright">
-                  of Michigan
-                </p>
-              </div>
-            </div>
-            <p className="mx-auto mt-5 max-w-xs font-display text-lg italic leading-relaxed text-cream/70 md:mx-0">
-              “{SITE.slogan}”
-            </p>
-            <p className="mx-auto mt-4 max-w-xs text-[13px] leading-relaxed text-cream/50 md:mx-0">
+          <div className="flex flex-col items-center md:items-start">
+            <Image
+              src="/barn-logo.png"
+              alt="Barnabas Ministry of Michigan"
+              width={150}
+              height={150}
+              className="h-32 w-32 drop-shadow-[0_6px_18px_rgba(0,0,0,0.35)]"
+            />
+            <p className="mx-auto mt-5 max-w-xs text-[13px] leading-relaxed text-cream/55 md:mx-0">
               {SITE.serviceArea}
             </p>
           </div>

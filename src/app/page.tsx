@@ -75,7 +75,7 @@ export default function Home() {
           <div className="relative mx-auto flex w-full max-w-6xl justify-end px-5 py-20 sm:px-8">
             <div className="animate-fade-up max-w-xl text-cream">
               <div className="mb-5 flex items-center gap-3">
-                <Logo className="h-12 w-auto drop-shadow-[0_6px_14px_rgba(0,0,0,0.4)]" />
+                <Logo priority className="h-12 w-12 drop-shadow-[0_6px_14px_rgba(0,0,0,0.4)]" />
                 <span className="eyebrow text-gold-bright">{HERO.kicker}</span>
               </div>
 

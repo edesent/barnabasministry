@@ -42,7 +42,7 @@ export default function SiteHeader({
       <div className="mx-auto flex h-[72px] max-w-6xl items-center justify-between px-5 sm:px-8">
         {/* Brand lockup */}
         <Link href="/" className="group flex items-center gap-3" onClick={() => setOpen(false)}>
-          <Logo className="h-11 w-auto shrink-0" />
+          <Logo priority className="h-11 w-11 shrink-0" />
           <span className="leading-none">
             <span
               className={`block font-display text-[1.35rem] font-semibold leading-none ${
