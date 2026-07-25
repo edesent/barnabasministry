@@ -8,6 +8,18 @@ export function Star({ className = "" }: { className?: string }) {
   );
 }
 
+export function Anchor({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="4" r="1.7" />
+      <path d="M12 5.7V21" />
+      <path d="M8.5 9.5h7" />
+      <path d="M4 13.5c0 4 3.6 6.6 8 6.6s8-2.6 8-6.6" />
+      <path d="M4 13.5l2.4 1M20 13.5l-2.4 1" />
+    </svg>
+  );
+}
+
 export function Diamond({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 16 16" className={className} aria-hidden="true" fill="currentColor">

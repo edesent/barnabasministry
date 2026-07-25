@@ -1,12 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { SITE, HERO, HEART, PILLARS, SERVE, LETTER, INVITE } from "@/config/site";
+import { SITE, HERO, HEART, PILLARS, SERVE, ANCHORED, FOSTER, LETTER, INVITE } from "@/config/site";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Marquee from "@/components/Marquee";
 import Reveal from "@/components/Reveal";
 import Logo from "@/components/Logo";
-import { StarDivider, Diamond } from "@/components/Ornaments";
+import { StarDivider, Diamond, Anchor } from "@/components/Ornaments";
 
 const orgLd = {
   "@context": "https://schema.org",
@@ -23,10 +23,10 @@ const orgLd = {
   areaServed: "Michigan, United States",
   founder: { "@type": "Person", name: SITE.contactName },
   knowsAbout: [
-    "Pulpit supply",
-    "Revival meetings",
-    "Bible conferences",
-    "Youth and family camps",
+    "Preaching and pulpit supply",
+    "Church music ministry",
+    "Biblical grief and loss ministry",
+    "Foster care and adoption",
     "Encouraging pastors",
   ],
 };
@@ -65,9 +65,7 @@ export default function Home() {
 
               <div className="mt-7 flex items-start gap-4">
                 <span className="mt-3 h-px w-12 shrink-0 bg-gold" />
-                <p className="max-w-lg text-lg leading-relaxed text-ink-soft">
-                  {HERO.subhead}
-                </p>
+                <p className="max-w-lg text-lg leading-relaxed text-ink-soft">{HERO.subhead}</p>
               </div>
 
               <figure className="mt-7 border-l-2 border-gold/70 pl-5">
@@ -104,9 +102,7 @@ export default function Home() {
                   />
                   <Logo className="relative mx-auto h-56 w-auto drop-shadow-[0_10px_20px_rgba(0,0,0,0.35)]" />
                   <StarDivider className="relative mx-auto mt-8 max-w-[11rem] text-gold/60" />
-                  <p className="relative mt-5 font-display text-2xl italic text-cream">
-                    {SITE.slogan}
-                  </p>
+                  <p className="relative mt-5 font-display text-2xl italic text-cream">{SITE.slogan}</p>
                   <p className="relative mt-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-gold-bright">
                     {SITE.tagline}
                   </p>
@@ -159,9 +155,7 @@ export default function Home() {
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight text-cream sm:text-5xl">
                 {PILLARS.heading}
               </h2>
-              <p className="mx-auto mt-5 max-w-xl leading-relaxed text-cream/70">
-                {PILLARS.intro}
-              </p>
+              <p className="mx-auto mt-5 max-w-xl leading-relaxed text-cream/70">{PILLARS.intro}</p>
             </Reveal>
 
             <div className="mt-14 grid gap-6 md:grid-cols-3">
@@ -194,36 +188,133 @@ export default function Home() {
             </Reveal>
 
             <div className="mt-14 grid gap-6 sm:grid-cols-2">
-              {SERVE.items.map((item, i) => (
-                <Reveal
-                  key={item.title}
-                  delay={(i % 2) * 80}
-                  className="group relative flex flex-col rounded-sm border border-rule bg-paper p-8 transition-all hover:-translate-y-1 hover:border-gold/60 hover:shadow-[0_20px_40px_-24px_rgba(16,31,57,0.5)]"
-                >
-                  <div className="flex items-baseline justify-between gap-4">
-                    <h3 className="font-display text-3xl font-semibold text-navy">{item.title}</h3>
-                    <span className="font-display text-4xl font-semibold text-cream-3 transition-colors group-hover:text-gold/70">
-                      0{i + 1}
-                    </span>
-                  </div>
-                  <p className="mt-1 text-[12px] font-semibold uppercase tracking-[0.12em] text-red">
-                    {item.tag}
-                  </p>
-                  <p className="mt-4 leading-relaxed text-ink-soft">{item.body}</p>
-                </Reveal>
-              ))}
+              {SERVE.items.map((item, i) => {
+                const href = "href" in item ? (item.href as string) : undefined;
+                const inner = (
+                  <>
+                    <div className="flex items-baseline justify-between gap-4">
+                      <h3 className="font-display text-3xl font-semibold text-navy">{item.title}</h3>
+                      <span className="font-display text-4xl font-semibold text-cream-3 transition-colors group-hover:text-gold/70">
+                        0{i + 1}
+                      </span>
+                    </div>
+                    <p className="mt-1 text-[12px] font-semibold uppercase tracking-[0.12em] text-red">
+                      {item.tag}
+                    </p>
+                    <p className="mt-4 leading-relaxed text-ink-soft">{item.body}</p>
+                    {href && (
+                      <span className="mt-4 inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.12em] text-navy transition-colors group-hover:text-red">
+                        Learn more <span aria-hidden="true">→</span>
+                      </span>
+                    )}
+                  </>
+                );
+                const cls =
+                  "group relative flex flex-col rounded-sm border border-rule bg-paper p-8 transition-all hover:-translate-y-1 hover:border-gold/60 hover:shadow-[0_20px_40px_-24px_rgba(16,31,57,0.5)]";
+                return (
+                  <Reveal key={item.title} delay={(i % 2) * 80}>
+                    {href ? (
+                      <Link href={href} className={cls}>
+                        {inner}
+                      </Link>
+                    ) : (
+                      <div className={cls}>{inner}</div>
+                    )}
+                  </Reveal>
+                );
+              })}
             </div>
+          </div>
+        </section>
 
-            <Reveal className="mt-12 text-center">
-              <Link href="/invite" className="btn btn-accent">
-                Invite Us to Your Church
+        {/* ── Anchored In Hope ─────────────────────────────────── */}
+        <section
+          id="anchored"
+          className="scroll-mt-20 relative overflow-hidden bg-navy-deep text-cream"
+        >
+          <div className="dot-field pointer-events-none absolute inset-0 text-gold opacity-[0.05]" aria-hidden="true" />
+          <div
+            className="pointer-events-none absolute inset-0"
+            aria-hidden="true"
+            style={{ background: "radial-gradient(90% 60% at 50% 0%, rgba(217,184,116,0.12), transparent 60%)" }}
+          />
+          <div className="relative mx-auto max-w-5xl px-5 py-20 sm:px-8 lg:py-28">
+            <Reveal className="mx-auto max-w-2xl text-center">
+              <Anchor className="mx-auto h-10 w-10 text-gold-bright" />
+              <p className="eyebrow mt-5 text-gold-bright">{ANCHORED.kicker}</p>
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight text-cream sm:text-5xl">
+                {ANCHORED.heading}
+              </h2>
+              <p className="mx-auto mt-5 leading-relaxed text-cream/70">{ANCHORED.intro}</p>
+            </Reveal>
+
+            <Reveal delay={100} className="mx-auto mt-12 max-w-2xl">
+              <div className="space-y-5 text-center font-display text-xl italic leading-relaxed text-cream/85 sm:text-2xl">
+                {ANCHORED.story.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+            </Reveal>
+
+            <Reveal delay={150} className="mx-auto mt-12 max-w-xl">
+              <figure className="rounded-sm border border-gold/40 bg-white/[0.04] px-7 py-7 text-center">
+                <blockquote className="font-display text-2xl italic leading-snug text-cream">
+                  {ANCHORED.verse.text}
+                </blockquote>
+                <figcaption className="mt-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-gold-bright">
+                  {ANCHORED.verse.ref}
+                </figcaption>
+              </figure>
+            </Reveal>
+
+            <Reveal delay={200} className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Link href="/anchored-in-hope" className="btn btn-gold">
+                About Anchored In Hope
               </Link>
+              <Link href="/invite" className="btn btn-ghost-inv">
+                {ANCHORED.cta}
+              </Link>
+            </Reveal>
+          </div>
+          <div className="tricolor" />
+        </section>
+
+        {/* ── Foster Care & Adoption ───────────────────────────── */}
+        <section id="foster" className="scroll-mt-20 bg-cream-2">
+          <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:py-24">
+            <Reveal>
+              <p className="eyebrow text-red">{FOSTER.kicker}</p>
+              <h2 className="mt-4 font-display text-4xl font-semibold leading-tight text-navy sm:text-5xl">
+                {FOSTER.heading}
+              </h2>
+              <div className="mt-6 space-y-5 text-[17px] leading-[1.8] text-ink-soft">
+                {FOSTER.body.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+              <div className="mt-8">
+                <Link href="/invite" className="btn btn-accent">
+                  {FOSTER.cta}
+                </Link>
+              </div>
+            </Reveal>
+
+            <Reveal delay={100}>
+              <figure className="relative rounded-md border border-gold/40 bg-navy px-8 py-12 text-center text-cream shadow-[0_24px_48px_-28px_rgba(16,31,57,0.7)]">
+                <div className="dot-field pointer-events-none absolute inset-0 text-gold opacity-[0.07]" aria-hidden="true" />
+                <blockquote className="relative font-display text-2xl italic leading-snug text-cream sm:text-[1.7rem]">
+                  {FOSTER.verse.text}
+                </blockquote>
+                <figcaption className="relative mt-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-gold-bright">
+                  {FOSTER.verse.ref}
+                </figcaption>
+              </figure>
             </Reveal>
           </div>
         </section>
 
         {/* ── A word from the ministry ─────────────────────────── */}
-        <section className="relative overflow-hidden bg-cream-2">
+        <section className="relative overflow-hidden bg-paper">
           <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16 lg:py-24">
             <Reveal className="mx-auto w-full max-w-sm">
               <figure className="relative">

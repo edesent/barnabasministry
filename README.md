@@ -21,7 +21,9 @@ Open it, find the text between the "quotes", type your new words, and save. The 
 site updates within about a minute. Common edits:
 
 - **Name / phone / email** — find `export const SITE` at the top.
-- **The four ministries** (pulpit supply, revival, conferences, camps) — find `export const SERVE`.
+- **How We Serve** (preaching, music, Anchored In Hope, foster & adoption) — find `export const SERVE`.
+- **Anchored In Hope** (grief & loss page + home section) — find `export const ANCHORED`.
+- **Foster Care & Adoption** — find `export const FOSTER`.
 - **Encouraging / Equipping / Edifying** — find `export const PILLARS`.
 - **The heart / Scripture** — find `export const HEART`.
 - **Bio (About page)** — find `export const ABOUT`.
