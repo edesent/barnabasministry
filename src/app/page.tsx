@@ -227,9 +227,26 @@ export default function Home() {
         {/* ── Anchored In Hope ─────────────────────────────────── */}
         <section
           id="anchored"
-          className="scroll-mt-20 relative overflow-hidden bg-navy-deep text-cream"
+          className="scroll-mt-20 relative isolate overflow-hidden bg-navy-deep text-cream"
         >
-          <div className="dot-field pointer-events-none absolute inset-0 text-gold opacity-[0.05]" aria-hidden="true" />
+          {/* Background sea + anchor, with a navy overlay */}
+          <div className="absolute inset-0 -z-10">
+            <Image
+              src="/anchor-sea.jpg"
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover object-center"
+            />
+            <div
+              className="absolute inset-0"
+              aria-hidden="true"
+              style={{
+                background:
+                  "linear-gradient(180deg, rgba(15,29,57,0.86), rgba(11,21,42,0.9))",
+              }}
+            />
+          </div>
           <div
             className="pointer-events-none absolute inset-0"
             aria-hidden="true"

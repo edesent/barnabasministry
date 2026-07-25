@@ -10,10 +10,10 @@ export default function SiteFooter() {
       <div className="dot-field absolute inset-0 text-gold opacity-[0.06]" aria-hidden="true" />
       <div className="tricolor" />
       <div className="relative mx-auto max-w-6xl px-5 py-16 sm:px-8">
-        <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1.1fr]">
+        <div className="grid gap-12 text-center md:grid-cols-[1.5fr_1fr_1.1fr] md:text-left">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center gap-3 md:justify-start">
               <Logo className="h-14 w-auto" />
               <div>
                 <p className="font-display text-2xl font-semibold leading-none text-cream">
@@ -24,10 +24,10 @@ export default function SiteFooter() {
                 </p>
               </div>
             </div>
-            <p className="mt-5 max-w-xs font-display text-lg italic leading-relaxed text-cream/70">
+            <p className="mx-auto mt-5 max-w-xs font-display text-lg italic leading-relaxed text-cream/70 md:mx-0">
               “{SITE.slogan}”
             </p>
-            <p className="mt-4 max-w-xs text-[13px] leading-relaxed text-cream/50">
+            <p className="mx-auto mt-4 max-w-xs text-[13px] leading-relaxed text-cream/50 md:mx-0">
               {SITE.serviceArea}
             </p>
           </div>
