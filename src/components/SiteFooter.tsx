@@ -16,9 +16,9 @@ export default function SiteFooter() {
             <Image
               src="/barn-logo.png"
               alt="Barnabas Ministry of Michigan"
-              width={150}
-              height={150}
-              className="h-32 w-32 drop-shadow-[0_6px_18px_rgba(0,0,0,0.35)]"
+              width={200}
+              height={200}
+              className="h-44 w-44 drop-shadow-[0_6px_18px_rgba(0,0,0,0.35)]"
             />
             <p className="mx-auto mt-5 max-w-xs text-[13px] leading-relaxed text-cream/55 md:mx-0">
               {SITE.serviceArea}
