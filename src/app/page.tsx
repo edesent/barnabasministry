@@ -6,7 +6,7 @@ import SiteFooter from "@/components/SiteFooter";
 import Marquee from "@/components/Marquee";
 import Reveal from "@/components/Reveal";
 import Logo from "@/components/Logo";
-import { StarDivider, Diamond, Anchor } from "@/components/Ornaments";
+import { StarDivider, Anchor } from "@/components/Ornaments";
 
 const orgLd = {
   "@context": "https://schema.org",
@@ -38,76 +38,73 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }}
       />
-      <SiteHeader />
+      <SiteHeader overHero="dark" />
       <main>
-        {/* ── Hero ─────────────────────────────────────────────── */}
-        <section className="relative overflow-hidden bg-cream pt-[72px]">
-          <div
-            className="pointer-events-none absolute inset-0"
-            aria-hidden="true"
-            style={{
-              background:
-                "radial-gradient(110% 70% at 15% 0%, rgba(255,255,255,0.6), transparent 55%), radial-gradient(120% 100% at 100% 100%, rgba(23,41,74,0.06), transparent 55%)",
-            }}
-          />
-          <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 pb-20 pt-12 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:pb-28 lg:pt-16">
-            {/* Text */}
-            <div className="animate-fade-up">
-              <div className="mb-6 flex items-center gap-3 text-red">
-                <Diamond className="h-2.5 w-2.5" />
-                <span className="eyebrow">{HERO.kicker}</span>
+        {/* ── Hero (cinematic) ─────────────────────────────────── */}
+        <section className="relative isolate flex min-h-[600px] items-center overflow-hidden pt-[72px] lg:min-h-[90vh]">
+          {/* Background image + scrims */}
+          <div className="absolute inset-0 -z-10">
+            <Image
+              src="/hero-hillside.jpg"
+              alt="A robed figure on a Judean hillside at golden hour, arm outstretched toward an ancient town"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-center"
+            />
+            <div
+              className="absolute inset-0"
+              aria-hidden="true"
+              style={{
+                background:
+                  "linear-gradient(90deg, rgba(16,31,57,0) 24%, rgba(16,31,57,0.48) 55%, rgba(15,29,57,0.93) 100%)",
+              }}
+            />
+            <div
+              className="absolute inset-0 lg:hidden"
+              aria-hidden="true"
+              style={{ background: "linear-gradient(180deg, rgba(15,29,57,0.5), rgba(15,29,57,0.86))" }}
+            />
+            <div
+              className="absolute inset-x-0 bottom-0 h-40"
+              aria-hidden="true"
+              style={{ background: "linear-gradient(180deg, transparent, rgba(15,29,57,0.72))" }}
+            />
+          </div>
+
+          <div className="relative mx-auto flex w-full max-w-6xl justify-end px-5 py-20 sm:px-8">
+            <div className="animate-fade-up max-w-xl text-cream">
+              <div className="mb-5 flex items-center gap-3">
+                <Logo className="h-12 w-auto drop-shadow-[0_6px_14px_rgba(0,0,0,0.4)]" />
+                <span className="eyebrow text-gold-bright">{HERO.kicker}</span>
               </div>
 
-              <h1 className="display-hed text-[clamp(2.7rem,7vw,4.6rem)] text-navy">
+              <h1 className="display-hed text-[clamp(2.7rem,7vw,4.7rem)] text-cream [text-shadow:0_2px_28px_rgba(0,0,0,0.4)]">
                 {HERO.headline}
-                <span className="mt-1 block text-red">{HERO.headlineAccent}</span>
+                <span className="mt-1 block text-gold-bright">{HERO.headlineAccent}</span>
               </h1>
 
               <div className="mt-7 flex items-start gap-4">
                 <span className="mt-3 h-px w-12 shrink-0 bg-gold" />
-                <p className="max-w-lg text-lg leading-relaxed text-ink-soft">{HERO.subhead}</p>
+                <p className="max-w-lg text-lg leading-relaxed text-cream/85">{HERO.subhead}</p>
               </div>
 
               <figure className="mt-7 border-l-2 border-gold/70 pl-5">
-                <blockquote className="font-display text-xl italic leading-snug text-navy/80">
+                <blockquote className="font-display text-xl italic leading-snug text-cream/90">
                   {HERO.verse}
                 </blockquote>
-                <figcaption className="mt-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted">
+                <figcaption className="mt-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-gold-bright/90">
                   {HERO.verseRef}
                 </figcaption>
               </figure>
 
               <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <Link href={HERO.primaryCta.href} className="btn btn-primary">
+                <Link href={HERO.primaryCta.href} className="btn btn-gold">
                   {HERO.primaryCta.label}
                 </Link>
-                <Link href={HERO.secondaryCta.href} className="btn btn-ghost">
+                <Link href={HERO.secondaryCta.href} className="btn btn-ghost-inv">
                   {HERO.secondaryCta.label}
                 </Link>
-              </div>
-            </div>
-
-            {/* Emblem medallion */}
-            <div className="animate-fade-up animation-delay-200 mx-auto w-full max-w-sm lg:max-w-none">
-              <div className="relative">
-                <div className="relative overflow-hidden rounded-md bg-navy px-8 py-12 text-center shadow-[0_30px_60px_-30px_rgba(16,31,57,0.7)]">
-                  <div className="dot-field pointer-events-none absolute inset-0 text-gold opacity-[0.08]" aria-hidden="true" />
-                  <div
-                    className="pointer-events-none absolute inset-0"
-                    aria-hidden="true"
-                    style={{
-                      background:
-                        "radial-gradient(80% 60% at 50% 0%, rgba(217,184,116,0.16), transparent 60%)",
-                    }}
-                  />
-                  <Logo className="relative mx-auto h-56 w-auto drop-shadow-[0_10px_20px_rgba(0,0,0,0.35)]" />
-                  <StarDivider className="relative mx-auto mt-8 max-w-[11rem] text-gold/60" />
-                  <p className="relative mt-5 font-display text-2xl italic text-cream">{SITE.slogan}</p>
-                  <p className="relative mt-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-gold-bright">
-                    {SITE.tagline}
-                  </p>
-                </div>
-                <div className="tricolor absolute inset-x-6 -bottom-1.5 rounded-full opacity-90" />
               </div>
             </div>
           </div>

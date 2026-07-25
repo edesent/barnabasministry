@@ -46,14 +46,14 @@ export default function SiteHeader({
           <span className="leading-none">
             <span
               className={`block font-display text-[1.35rem] font-semibold leading-none ${
-                light ? "text-cream" : "text-navy"
+                light ? "text-cream [text-shadow:0_1px_12px_rgba(0,0,0,0.55)]" : "text-navy"
               }`}
             >
               Barnabas Ministry
             </span>
             <span
               className={`mt-1 block text-[9px] font-semibold uppercase tracking-[0.32em] ${
-                light ? "text-gold-bright" : "text-red"
+                light ? "text-gold-bright [text-shadow:0_1px_10px_rgba(0,0,0,0.6)]" : "text-red"
               }`}
             >
               A Friend to Pastors
@@ -68,7 +68,9 @@ export default function SiteHeader({
               key={item.href}
               href={item.href}
               className={`text-[12px] font-semibold uppercase tracking-[0.14em] transition-colors ${
-                light ? "text-cream/80 hover:text-gold-bright" : "text-ink-soft hover:text-red"
+                light
+                  ? "text-cream/90 [text-shadow:0_1px_10px_rgba(0,0,0,0.5)] hover:text-gold-bright"
+                  : "text-ink-soft hover:text-red"
               }`}
             >
               {item.label}

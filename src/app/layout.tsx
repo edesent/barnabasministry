@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { SITE } from "@/config/site";
 import "./globals.css";
 
@@ -117,6 +118,7 @@ export default function RootLayout({
         <div id="app-root" className="flex min-h-screen flex-col">
           {children}
         </div>
+        <Analytics />
       </body>
     </html>
   );
