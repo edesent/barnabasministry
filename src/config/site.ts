@@ -18,7 +18,7 @@ export const SITE = {
     "Barnabas Ministry of Michigan comes alongside pastors and churches as a friend — preaching and pulpit supply, music ministry, the Anchored In Hope grief-and-loss ministry, and Foster Care & Adoption Sundays. Encouraging, equipping, and edifying the local church.",
   shortDescription:
     "A friend to pastors — preaching, music ministry, the Anchored In Hope grief ministry, and Foster Care & Adoption Sundays that encourage, equip, and edify the local church.",
-  url: "https://barnabasministry.elijahdesent.com",
+  url: "https://www.barnabasministrymi.com",
 
   // Contact — from the ministry.
   contactName: "A.C. Caincross",

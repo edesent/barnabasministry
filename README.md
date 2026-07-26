@@ -7,7 +7,7 @@ to one aim: *encouraging, equipping, and edifying* the local church.
 
 ## Live site & links
 
-- **Public website (share this one):** **https://barnabasministry.elijahdesent.com**
+- **Public website (share this one):** **https://www.barnabasministrymi.com**
 - Any URL that looks like `barnabasministry-…-elijah-desents-projects.vercel.app` is a
   **private, internal build preview** protected behind a login — **don't share it**, and
   there's no need to request access to it. Always use the branded address above.
