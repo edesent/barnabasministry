@@ -6,7 +6,7 @@ import SiteFooter from "@/components/SiteFooter";
 import Marquee from "@/components/Marquee";
 import Reveal from "@/components/Reveal";
 import Logo from "@/components/Logo";
-import { StarDivider, Anchor } from "@/components/Ornaments";
+import { Anchor } from "@/components/Ornaments";
 
 const orgLd = {
   "@context": "https://schema.org",
@@ -120,7 +120,6 @@ export default function Home() {
                 {HEART.heading}
               </h2>
               <Logo className="mt-8 h-auto w-[300px] max-w-full drop-shadow-[0_12px_28px_rgba(16,31,57,0.2)]" />
-              <StarDivider className="mt-8 max-w-[9rem] text-gold" />
             </Reveal>
 
             <Reveal delay={100}>
