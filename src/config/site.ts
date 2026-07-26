@@ -26,7 +26,7 @@ export const SITE = {
   phoneTel: "+19895691298",
   email: "pastorac23@gmail.com",
   // No public mailing address supplied — the ministry serves churches on the road.
-  serviceArea: "Michigan & the Great Lakes region — traveling as the Lord opens doors",
+  serviceArea: "Northern Michigan & the Great Lakes region — traveling as the Lord opens doors",
 
   // Theme (used by browser chrome + PWA manifest)
   backgroundColor: "#faf5ea",
