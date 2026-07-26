@@ -74,8 +74,7 @@ export default function Home() {
 
           <div className="relative mx-auto flex w-full max-w-6xl justify-end px-5 py-20 sm:px-8">
             <div className="animate-fade-up max-w-xl text-cream">
-              <div className="mb-5 flex items-center gap-3">
-                <Logo priority className="h-12 w-12 drop-shadow-[0_6px_14px_rgba(0,0,0,0.4)]" />
+              <div className="mb-5">
                 <span className="eyebrow text-gold-bright">{HERO.kicker}</span>
               </div>
 
@@ -120,7 +119,8 @@ export default function Home() {
               <h2 className="mt-4 font-display text-4xl font-semibold leading-tight text-navy sm:text-5xl">
                 {HEART.heading}
               </h2>
-              <StarDivider className="mt-7 max-w-[9rem] text-gold" />
+              <Logo className="mt-8 h-auto w-[300px] max-w-full drop-shadow-[0_12px_28px_rgba(16,31,57,0.2)]" />
+              <StarDivider className="mt-8 max-w-[9rem] text-gold" />
             </Reveal>
 
             <Reveal delay={100}>
