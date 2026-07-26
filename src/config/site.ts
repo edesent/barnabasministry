@@ -26,7 +26,7 @@ export const SITE = {
   phoneTel: "+19895691298",
   email: "pastorac23@gmail.com",
   // No public mailing address supplied — the ministry serves churches on the road.
-  serviceArea: "Northern Michigan & the Great Lakes region — traveling as the Lord opens doors",
+  serviceArea: "Michigan & the Great Lakes region — traveling as the Lord opens doors",
 
   // Theme (used by browser chrome + PWA manifest)
   backgroundColor: "#faf5ea",
@@ -95,17 +95,17 @@ export const PILLARS = {
     "Three words shape everything we do. They are the way a friend serves the local church — not to take its place, but to strengthen it.",
   items: [
     {
-      n: "I",
+      n: "1",
       name: "Encouraging",
       body: "Standing with the pastor and the people — a word in season, a shoulder to the plow, and the reminder that the labor is not in vain in the Lord.",
     },
     {
-      n: "II",
+      n: "2",
       name: "Equipping",
       body: "Teaching, training, and pouring into God's people so the church is built up for the work of the ministry, long after the meeting is over.",
     },
     {
-      n: "III",
+      n: "3",
       name: "Edifying",
       body: "Lifting up Christ and building up the body — preaching and music that feed the flock and leave a congregation nearer to the Lord.",
     },
@@ -128,7 +128,7 @@ export const SERVE = {
     {
       title: "Music Ministry",
       tag: "Piano · Special music · Song leading",
-      body: "My wife provides piano and music, we sing special music together, and I lead the singing. We're glad to carry the music for a full service — or to come alongside a scheduled evangelist and simply handle the music side.",
+      body: "My wife provides piano and music, we sing special music together, and I can lead the singing. We're glad to carry the music for a full service — or to come alongside a scheduled evangelist and simply handle the music side.",
     },
     {
       title: "Anchored In Hope",
@@ -180,7 +180,7 @@ export const ANCHORED = {
       body: "I share our story and preach a biblical message of hope — grounding the comfort of the gospel in the Word of God for the whole congregation.",
     },
   ],
-  cta: "Schedule an Anchored In Hope Day for 2026",
+  cta: "Schedule an Anchored In Hope Day",
   closing:
     "Whichever avenue you choose is sure to bring comfort, hope, and support to the grieving in your church and community.",
 } as const;
@@ -212,7 +212,7 @@ export const LETTER = {
     "That is why this ministry exists. Not to build a name, but to lend a hand. If we can fill your pulpit, carry the music, bring hope to the grieving, or help you strengthen the homes of your church, we would be honored. And if all you need is someone to pray with and encourage you, that is a ministry too.",
   ],
   pullQuote: "The name Barnabas means encouragement. That is the whole of it.",
-  signoff: "— A.C. & Mrs. Caincross, Barnabas Ministry of Michigan",
+  signoff: "— A.C. & Karisa Caincross, Barnabas Ministry of Michigan",
 } as const;
 
 // ---- Invite / booking -----------------------------------------------------
