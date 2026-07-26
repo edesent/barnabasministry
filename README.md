@@ -5,11 +5,20 @@ The website for **Barnabas Ministry of Michigan**, the husband-and-wife ministry
 Pulpit supply, revival meetings, Bible conferences, and youth & family camps, given
 to one aim: *encouraging, equipping, and edifying* the local church.
 
+## Live site & links
+
+- **Public website (share this one):** **https://barnabasministry.elijahdesent.com**
+- Any URL that looks like `barnabasministry-…-elijah-desents-projects.vercel.app` is a
+  **private, internal build preview** protected behind a login — **don't share it**, and
+  there's no need to request access to it. Always use the branded address above.
+- **You do NOT need a Vercel account to view or edit this site.** Viewing is public;
+  editing happens through the GitHub repo (see below).
+
 **Design concept — "The Son of Encouragement":** a warm, dignified heritage look —
 deep navy, revival red, and antique gold on parchment, with an elegant Garamond
 display face. Quietly patriotic (a nod to the ministry's own branding) without being
-loud, so the tone stays pastoral and trustworthy. The shield emblem (cross, open
-Bible, descending dove) is a clean hand-drawn SVG built from the ministry's logo idea.
+loud, so the tone stays pastoral and trustworthy. The logo is the ministry's official
+seal — a sword over an open Bible — used across the header, hero, footer, and app icons.
 
 ---
 
@@ -64,6 +73,8 @@ Home · About (`/about`) · Invite Us (`/invite`)
 
 - **Framework:** Next.js 16 (App Router) · React 19 · Tailwind CSS v4 (theme in `globals.css`, no `tailwind.config`)
 - **Run locally:** `npm install` then `npm run dev`
-- **Deploy:** pushing to `main` auto-deploys to Vercel.
+- **Deploy:** this repo is connected to Vercel — **every push to `main` auto-publishes**
+  to the live site (usually within a minute). No manual deploy step, and no Vercel
+  account is needed to make edits; editing the repo is enough.
 
 Built by [Elijah Desent](https://www.elijahdesent.com).
