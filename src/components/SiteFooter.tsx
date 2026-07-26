@@ -70,20 +70,9 @@ export default function SiteFooter() {
           <StarDivider className="mx-auto max-w-xs text-gold/50" />
         </div>
 
-        <div className="mt-8 flex flex-col items-center justify-between gap-3 text-center sm:flex-row sm:text-left">
+        <div className="mt-8 text-center">
           <p className="text-[11px] uppercase tracking-[0.2em] text-cream/40">
             © {year} Barnabas Ministry of Michigan · All rights reserved
-          </p>
-          <p className="text-[11px] uppercase tracking-[0.2em] text-cream/40">
-            Website by{" "}
-            <a
-              href="https://www.elijahdesent.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-cream/70 underline underline-offset-2 hover:text-gold-bright"
-            >
-              Elijah Desent
-            </a>
           </p>
         </div>
       </div>
